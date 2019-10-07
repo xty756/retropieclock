@@ -1,0 +1,25 @@
+#include <graphics.h>
+#include <time.h>
+    
+int main()
+(
+    int gd = DETECT;
+    int gm;
+    initgraph(&gd, &gm, "C:\\TC\\BGI");
+    
+    time_t rawTime;
+    struct tm * currentTime;
+    char a[100];
+    
+    rawTime = time(NULL);
+    currentTime = localtime(&rawTime);
+    strftime(a, 100, "%I:%M:%S", currentTime);
+    
+    setcolor(6);
+    settextstyle(3, HORIZ_DIR, 10);
+    outtextxy(200, 100, a);
+    
+    
+    
+    getch();
+    closegraph();
